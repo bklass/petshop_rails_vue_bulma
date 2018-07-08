@@ -1,0 +1,52 @@
+<%= content_tag :div, id: 'produto-form', class: 'columns', data: { produto: produto.to_json(except: [:created_at, :updated_at]) } do %>
+  <div class='column'>
+    <div id="form" class="card">
+      <div class="card-content">
+        <h2 class="title">Cadastrar Produto</h2>
+
+        <label>Nome</label>
+        <input type='text' v-model="produto.nome" class="input">
+
+        <label>Descrição</label>
+        <textarea class="textarea" v-model="produto.descricao"></textarea>
+    
+        <label>Preço</label>
+        <input type='text' v-model="produto.preco" class="input">
+    
+        <label>Categoria</label>
+        <select v-model="produto.categoria" class="select">
+          <option>Banho</option>
+          <option>Saúde</option>
+          <option>Alimentação</option>
+          <option>Diversão</option>
+          <option>Vestimenta</option>
+          <option>Outros</option>
+        </select>
+        
+        <label>Marca</label>
+        <select v-model="produto.marca" class="select">
+          <option>Biacat</option>
+          <option>Hpet</option>
+          <option>Feliway</option>
+          <option>Happy Pet</option>
+          <option>GoodBoy</option>
+          <option>Banpet</option>
+        </select>
+        
+        <label>Tipo de Pet</label>
+        <select v-model="produto.tipoPet" class="select">
+          <option>Cachorro</option>
+          <option>Gato</option>
+          <option>Pássaro</option>
+          <option>Peixe</option>
+          <option>Roedor</option>
+          <option>Outro</option>
+        </select>
+        
+      </div>
+      <div class="card-footer">
+        <button @click="saveProduct" class="button is-link">Cadastrar</button>
+      </div>
+    </div>
+  </div>
+<% end %>
