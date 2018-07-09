@@ -1,1 +1,45 @@
-<h1> HEADER AQUI!</h1>
+<nav class="navbar is-transparent" >
+  <div class="navbar-brand">
+    <a class="navbar-item" href="<%= root_path %>">
+      <img src="https://petshopcontrol.blob.core.windows.net/blog/blog/wp-content/uploads/logo-exemplo.png" alt="Petshop" width="120" height="120" style="max-height: 100%;">
+    </a>
+    <div class="navbar-burger burger" data-target="navbarExampleTransparentExample">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </div>
+
+  <div id="navbarExampleTransparentExample" class="navbar-menu">
+    <div class="navbar-start">
+      <a class="navbar-item" href="<%= root_path %>">
+        Inicial
+      </a>
+      <div class="navbar-item has-dropdown is-hoverable">
+        <a class="navbar-link" href="<%= produtos_path %>">
+          Produtos
+        </a>
+        <div class="navbar-dropdown is-boxed">
+          <a class="navbar-item" href="<%= produtos_path %>">
+            Lista
+          </a>
+          <a class="navbar-item" href="<%= new_produto_path %>">
+            Cadastro
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div class="navbar-end">
+      <div class="navbar-item">
+        <div class="field is-grouped">
+          <p class="control">
+            <a class="navbar-item" href="<%= root_path %>">
+                Carrinho
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

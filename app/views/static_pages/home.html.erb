@@ -1,0 +1,35 @@
+<div class="columns is-multiline" style="padding-top: 20px; padding-left: 20px;">
+  <% @produtos.each do |produto| %>
+       <div class="column is-one-quarter">
+        <table class="table">
+            <tr>
+                <td>
+                    <figure class="image is-48x48">
+                      <img src="http://pinkpaws.org/wp-content/uploads/2014/07/PINK-PAWS-ICONS_WHITPAW.png" alt="Produto -  <%= produto.nome %>">
+                    </figure>
+                </td>
+                <td>
+                    <table class="table">
+                        <tr>
+                            <td><strong>Produto</strong></td>
+                            <td><%= produto.nome %></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Descrição</strong></td>
+                            <td><%= produto.descricao %></td>
+                        </tr>
+                        <tr>
+                            <td><strong>Preço</strong></td>
+                            <td><%= produto.preco %></td>
+                        </tr>
+                    </table>
+                  <div class="field is-grouped">
+                      <%= button_to "Ver detalhes", produto, class: "button is-info is-small", :method => :get %>
+                      <a class="button is-success is-small"><img src="https://png.icons8.com/windows/1600/add-shopping-cart.png" height="24" width="24">Carrinho</a>
+                  </div>
+                </td>
+            </tr>
+        </table>
+      </div>
+  <% end %>
+</div>

@@ -1,6 +1,6 @@
 <%= content_tag :div, id: 'produto-form', class: 'columns', data: { produto: produto.to_json(except: [:created_at, :updated_at]) } do %>
   <div class='column'>
-    <div id="form" class="card">
+    <div id="form" class="card" style="box-shadow: none;">
       <div class="card-content">
         <h2 class="title">Cadastrar Produto</h2>
 
@@ -44,7 +44,7 @@
         </select>
         
       </div>
-      <div class="card-footer">
+      <div class="card-footer" style="border-top: none; padding-left: 1.5em;">
         <button @click="saveProduct" class="button is-link">Cadastrar</button>
       </div>
     </div>

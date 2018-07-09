@@ -1,3 +1,5 @@
 <%= render 'form', produto: @produto %>
 
-<%= link_to 'Back', produtos_path %>
+<div class="field is-grouped" style="padding: 1em;">
+    <%= button_to "Voltar", produtos_path, class: "button is-warning is-outlined", :method => :get %>
+</div>

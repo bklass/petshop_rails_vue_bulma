@@ -1,34 +1,33 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Nome:</strong>
-  <%= @produto.nome %>
-</p>
+<table class="table">
+  <tr>
+    <td><strong>Nome:</strong></td>
+    <td><%= @produto.nome %></td>
+  </tr>
+  <tr>
+    <td><strong>Descrição:</strong></td>
+    <td><%= @produto.descricao %></td>
+  </tr>
+  <tr>
+    <td><strong>Preço:</strong></td>
+    <td><%= @produto.preco %></td>
+  </tr>
+  <tr>
+    <td><strong>Categoria:</strong></td>
+    <td><%= @produto.categoria %></td>
+  </tr>
+  <tr>
+    <td><strong>Marca:</strong></td>
+    <td><%= @produto.marca %></td>
+  </tr>
+  <tr>
+    <td><strong>Tipo de pet:</strong></td>
+    <td><%= @produto.tipoPet %></td>
+  </tr>
+</table>
 
-<p>
-  <strong>Descricao:</strong>
-  <%= @produto.descricao %>
-</p>
-
-<p>
-  <strong>Preco:</strong>
-  <%= @produto.preco %>
-</p>
-
-<p>
-  <strong>Categoria:</strong>
-  <%= @produto.categoria %>
-</p>
-
-<p>
-  <strong>Marca:</strong>
-  <%= @produto.marca %>
-</p>
-
-<p>
-  <strong>Tipopet:</strong>
-  <%= @produto.tipoPet %>
-</p>
-
-<%= link_to 'Edit', edit_produto_path(@produto) %> |
-<%= link_to 'Back', produtos_path %>
+<div class="field is-grouped" style="padding: 1em;">
+  <%= button_to "Editar", edit_produto_path(@produto), class: "button is-info is-outlined", :method => :get %> 
+  <%= button_to "Voltar", produtos_path, class: "button is-warning is-outlined", :method => :get %>
+</div>

@@ -20,11 +20,20 @@ document.addEventListener('turbolinks:load', () => {
       },
       methods: {
         saveProduct() {
-          this.$http.post('/produtos', { produto: this.produto }).then(response => {
-            Turbolinks.visit(`/produtos/${response.body.id}`)
-          }, response => {
-            console.log(response)
-          })
+          produto: this.produto
+          if(produto.id){
+            this.$http.put(`/produtos/${produto.id}`, produto).then(response => {
+              Turbolinks.visit(`/produtos/${response.body.id}`)
+            }, response => {
+              console.log(response)
+            })
+          } else {
+            this.$http.post('/produtos', produto).then(response => {
+              Turbolinks.visit(`/produtos/${response.body.id}`)
+            }, response => {
+              console.log(response)
+            })
+          }
         }
       }
     });
