@@ -26,3 +26,8 @@
     <td><%= @produto.tipoPet %></td>
   </tr>
 </table>
+
+<div class="field is-grouped" style="padding: 1em;">
+  <%= button_to "Editar", edit_produto_path(@produto), class: "button is-info is-outlined", :method => :get %> 
+  <%= button_to "Voltar", produtos_path, class: "button is-warning is-outlined", :method => :get %>
+</div>

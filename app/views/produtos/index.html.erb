@@ -1,8 +1,67 @@
+<%= content_tag :div, id: 'produto-app', data: {produtos: @produtos.to_json(except: [:created_at, :update_at])} do%>
 <p id="notice"><%= notice %></p>
 
 <h3 class="title is-3">Produtos</h3>
 
+<div style="padding: 1.5em;">
+  <div v-if="formMode">
+    <div class='column'>
+    <div id="form" class="card" style="box-shadow: none;">
+      <div class="card-content">
+        <h2 class="title">Formulário de Produto</h2>
 
+        <label>Nome</label>
+        <input type='text' v-model="produto.nome" class="input">
+
+        <label>Descrição</label>
+        <textarea class="textarea" v-model="produto.descricao"></textarea>
+    
+        <label>Preço</label>
+        <input type='text' v-model="produto.preco" class="input">
+    
+        <label>Categoria</label>
+        <select v-model="produto.categoria" class="select">
+          <option>Banho</option>
+          <option>Saúde</option>
+          <option>Alimentação</option>
+          <option>Diversão</option>
+          <option>Vestimenta</option>
+          <option>Outros</option>
+        </select>
+        
+        <label>Marca</label>
+        <select v-model="produto.marca" class="select">
+          <option>Biacat</option>
+          <option>Hpet</option>
+          <option>Feliway</option>
+          <option>Happy Pet</option>
+          <option>GoodBoy</option>
+          <option>Banpet</option>
+        </select>
+        
+        <label>Tipo de Pet</label>
+        <select v-model="produto.tipoPet" class="select">
+          <option>Cachorro</option>
+          <option>Gato</option>
+          <option>Pássaro</option>
+          <option>Peixe</option>
+          <option>Roedor</option>
+          <option>Outro</option>
+        </select>
+        
+      </div>
+      <div class="card-footer" style="border-top: none; padding-left: 1.5em;">
+        <button @click="saveProduct(produto)" class="button is-link">Salvar produto</button>
+        <button @click="cancelProduct" class="button is-warning is-outlined">Cancelar</button>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div v-else>
+    <button class="button is-info is-outlined" @click="formMode = true">Novo produto</button>
+  </div>
+</div>
+<br />
 <table class="table is-striped is-hoverable is-fullwidth">
   <thead>
     <tr>
@@ -16,23 +75,18 @@
     </tr>
   </thead>
   <tbody>
-    <% @produtos.each do |produto| %>
-      <tr>
-        <td><%= produto.nome %></td>
-        <td><%= produto.descricao %></td>
-        <td><%= produto.preco %></td>
-        <td><%= produto.categoria %></td>
-        <td><%= produto.marca %></td>
-        <td><%= produto.tipoPet %></td>
-        <td><%= button_to "Mostrar", produto, class: "button is-link is-small", :method => :get %></td>
-        <td><%= button_to "Editar", edit_produto_path(produto), class: "button is-info is-small", :method => :get %></td>
-        <td><%= button_to "Remover", produto, class: "button is-danger is-small", :method => :delete, data: { confirm: 'Você tem certeza?' }%></tr>
-    <% end %>
+      <tr v-for="(p, i) in produtos">
+        <td>{{ p.nome }}</td>
+        <td>{{ p.descricao }}</td>
+        <td>{{ p.preco }}</td>
+        <td>{{ p.categoria }}</td>
+        <td>{{ p.marca }}</td>
+        <td>{{ p.tipoPet }}</td>
+        <td><button class="button is-success is-small" @click="editProduct(p,i)">Editar</button></td>
+        <td><button class="button is-danger is-small" @click="removeProduct(p.id,i)">Remover</button></td>
+      </tr>      
   </tbody>
 </table>
-<br>
 
-<div style="padding: 1.5em;">
-  <%= button_to "Novo Produto", new_produto_path, class: "button is-info is-outlined", :method => :get %>
-</div>
 
+<% end %>
