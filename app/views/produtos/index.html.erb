@@ -11,16 +11,16 @@
         <h2 class="title">Formulário de Produto</h2>
 
         <label>Nome</label>
-        <input type='text' v-model="produto.nome" class="input">
+        <input type='text' v-model="produto.nome" class="input is-small">
 
         <label>Descrição</label>
-        <textarea class="textarea" v-model="produto.descricao"></textarea>
+        <textarea class="textarea is-small" v-model="produto.descricao"></textarea>
     
         <label>Preço</label>
-        <input type='text' v-model="produto.preco" class="input">
+        <input type='text' v-model="produto.preco" class="input is-small">
     
         <label>Categoria</label>
-        <select v-model="produto.categoria" class="select">
+        <select v-model="produto.categoria" class="select is-small is-rounded">
           <option>Banho</option>
           <option>Saúde</option>
           <option>Alimentação</option>
@@ -30,7 +30,7 @@
         </select>
         
         <label>Marca</label>
-        <select v-model="produto.marca" class="select">
+        <select v-model="produto.marca" class="select is-small is-rounded">
           <option>Biacat</option>
           <option>Hpet</option>
           <option>Feliway</option>
@@ -40,7 +40,7 @@
         </select>
         
         <label>Tipo de Pet</label>
-        <select v-model="produto.tipoPet" class="select">
+        <select v-model="produto.tipoPet" class="select is-small is-rounded">
           <option>Cachorro</option>
           <option>Gato</option>
           <option>Pássaro</option>

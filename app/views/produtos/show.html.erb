@@ -26,3 +26,67 @@
     <td><%= @produto.tipoPet %></td>
   </tr>
 </table>
+
+<div style="padding: 1.5em;">
+  <h4 class="is-h4">Calculo de Frete</h4>
+  <div class="field has-addons">
+    <div class="control has-icons-left">
+      <input type="text" class="input is-info is-rounded" id="cep" placeholder="Digite seu cep...">
+    </div>
+    <div class="control">
+        <a class="button is-info" onclick="getcep()">Calcular</a>
+    </div>
+  </div>
+</div>
+
+<div class="field is-grouped" style="padding: 1em;">
+  <%= button_to "Voltar", root_path, class: "button is-warning is-outlined is-small", :method => :get %>
+  <a class="button is-success is-small" onclick="alert('Não implementado');"><img src="https://png.icons8.com/windows/1600/add-shopping-cart.png" height="24" width="24">Carrinho</a>
+</div>
+
+<script>
+    function getcep(){
+      
+      var cepDest = $('#cep').val();
+      
+      var correios = 'http://ws.correios.com.br/calculador/CalcPrecoPrazo.aspx';
+      correios += '?nCdEmpresa=';
+      correios += '&sDsSenha=';
+      correios += '&nCdServico=04014,04510';
+      correios += '&sCepOrigem=90020123';
+      correios += '&sCepDestino='+cepDest;
+      correios += '&nVlPeso=1';
+      correios += '&nCdFormato=1';
+      correios += '&nVlComprimento=20';
+      correios += '&nVlAltura=30';
+      correios += '&nVlLargura=30';
+      correios += '&nVlDiametro=20';
+      correios += '&sCdMaoPropria=N';
+      correios += '&nVlValorDeclarado=0';
+      correios += '&sCdAvisoRecebimento=N';
+      correios += '&StrRetorno=popup';
+      
+      window.open(correios,"_target");
+      
+      // var xhr = new XMLHttpRequest();
+      // xhr.open('GET', correios, true);
+      // xhr.send();
+      // xhr.onreadystatechange = processRequest;
+ 
+      // function processRequest(e) {
+      // if (xhr.readyState == 4 && xhr.status == 200) {
+      //     var response = xhr.responseText;
+      //     console.log(response);
+      //   }
+      // }
+      
+      // $.ajax({
+      //   url: correios,
+      //   type: 'GET',
+      //   dataType: 'xml',
+      //   success: function(res){
+      //     console.log(res);
+      //   }
+      // })
+    }
+</script>
