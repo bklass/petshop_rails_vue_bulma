@@ -10,16 +10,16 @@
       <div class="card-content">
         <h2 class="title">Formulário de Produto</h2>
 
-        <label>Nome</label>
+        <label class="label is-small">Nome</label>
         <input type='text' v-model="produto.nome" class="input is-small">
 
-        <label>Descrição</label>
+        <label class="label is-small">Descrição</label>
         <textarea class="textarea is-small" v-model="produto.descricao"></textarea>
     
-        <label>Preço</label>
+        <label class="label is-small">Preço</label>
         <input type='text' v-model="produto.preco" class="input is-small">
     
-        <label>Categoria</label>
+        <label class="label is-small">Categoria</label>
         <select v-model="produto.categoria" class="select is-small is-rounded">
           <option>Banho</option>
           <option>Saúde</option>
@@ -29,7 +29,7 @@
           <option>Outros</option>
         </select>
         
-        <label>Marca</label>
+        <label class="label is-small">Marca</label>
         <select v-model="produto.marca" class="select is-small is-rounded">
           <option>Biacat</option>
           <option>Hpet</option>
@@ -39,7 +39,7 @@
           <option>Banpet</option>
         </select>
         
-        <label>Tipo de Pet</label>
+        <label class="label is-small">Tipo de Pet</label>
         <select v-model="produto.tipoPet" class="select is-small is-rounded">
           <option>Cachorro</option>
           <option>Gato</option>
